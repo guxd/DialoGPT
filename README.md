@@ -53,7 +53,6 @@ conda env create -f LSP-linux.yml -n LSP
 conda activate LSP
 ```
 
-If you run this on an architecture other than Linux, please use `LSP-generic.yml` instead of `LSP-linux.yml` but please note that the generic one is not tested in all platform, so the stablity can not be gauranteed.
 To use fp16 training, please install apex by using commands below
   
 ```bash
@@ -95,7 +94,7 @@ This section explains all components in the `demo.py`.
 #### Data loading
 Before running `demo.py`, you can set *DATA_FOLDER* (default value `./models`)  in `demo.py` as the place you want to download all the data and pretrained/fine-tuned models. Then simply run
 ```bash
-python demo.py
+python demo.py --data_path DATA_FOLDER --model_path MODEL_FOLDER --data_type DATA_TYPE
 ```
 to 
 
@@ -103,11 +102,11 @@ to
 * prepare raw data into db that is ready to use for the program,
 * generate a training scripts.
 
-Note that by default the `demo.py` will use a dummy data, please specify the Reddit training data by using option `--data`. Three options are  available:`dummy`,`small` and `full`. 
+Note that by default the `demo.py` will use a dummy data, please specify the Reddit training data by using option `--data_type`. Three options are  available:`dummy`,`small` and `full`. 
 
 ```bash
-python demo.py --data small
-python demo.py --data full
+python demo.py --data_type small
+python demo.py --data_type full
 ```
 
 The small Reddit data is around 140MB and the full Reddit data is more than 30GB. You can prepare a cup of coffee when processing with the full Reddit data because **it takes a long time**!

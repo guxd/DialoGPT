@@ -13,13 +13,7 @@ def eval(prediction_path, output_path, data_type):
     os.chdir(CODE_ROOT)
     ref_path = f'{CODE_ROOT}/data/test.refs.txt'
     key_path = f'{CODE_ROOT}/data/keys.2k.txt'
-    cmd = ['dstc.py',
-           prediction_path,
-           '--refs',
-           ref_path,
-           '--keys',
-           key_path,
-           '--clean']
+    cmd = ['dstc.py', prediction_path, '--refs', ref_path, '--keys', key_path, '--clean']
     cmd = " ".join(cmd) #% {"CODE_ROOT": CODE_ROOT}
     print(cmd)
 
